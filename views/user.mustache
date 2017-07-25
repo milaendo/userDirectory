@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+<div class="wrapper2">
+	<div class="picture">
+		<img src="{{avatar}}">
+	</div>
+	<div class="nameinfo">
+	<h1>{{name}}</h1>
+	<span>{{city}}{{state_or_provice}}</span>
+	{{^city}}
+	<span></span>
+	{{/city}}
+	{{^state_or_province}}
+	<span></span>
+	{{/state_or_province}}
+	<span>{{job}}</span>
+	{{^job}}
+  	<span>Available for hire</span>
+	{{/job}}
+	<span>{{company}}</span>
+	<span>{{email}}</span>
+	<span>{{phone}}</span>
+	</div>
+	<div class="education">
+	<span class="caps">Education</span> <br> 
+	<span class="caps">Skills</span>  
+	<span>{{university}}</span>
+	<span>{{skills}}</span>
+</div>
+</body>
+</html>
