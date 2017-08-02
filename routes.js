@@ -1,15 +1,20 @@
 const express = require('express')
 const router = express.Router()
 const userModel = require('./models/user')
-
-
+//require mongodb and initalze it
 router.get("/", function(req, res, next){
-	let data = userModel.getAllUsers()
-  res.render("index", data)
+	userModel.getAllUsers(function(data){
+  		res.render("index", {users:data})
+  	})
 })
 
 router.get('/user/:id', function(req, res, next){
-	let user = userModel.getUserById(req.params.id)
-	res.render("user", user)
+	let id = parseInt(req.params.id)
+	userModel.getUserById(id, function(user) {
+		res.render("user", user)
+	})
+	
 })
+
+//read from the database and display the results
 module.exports = router
